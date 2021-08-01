@@ -9,7 +9,9 @@ Fabricated at [JLCPCB](URL "https://jlcpcb.com") July, 2021.  I originally tried
 ## Power 
 I measured current consumption with a Keysight B2901A SMU. With AUP devices installed, I did measure higher current than what H&H quoted: 867nA for 0.9V 1st stage, and 4.54uA for 1.8V w output driver for a total power consumption of 8.95uW.  I have not investigated the reason for the discrepancy.  Jitter performance is quite good, peak-to-peak jitter of around 3ns.  
 ## Cost
-Nexperia raised prices on the AUP devices after I bought them.  
+Nexperia raised prices on the AUP devices after I bought them.
+
+The BOM for the oscillator portion of the design is below:
 
 Designator  | Description | Component | Cost 1k qty
 ------------ | -------------| ------------- | -------------
@@ -29,7 +31,7 @@ R7 | 10M ohm 0402| 0402WGF1005TCE | $0.0007
 R3 | 10kOhm resistor,0402| RC0603FR-0710KL | $0.0012
 R2 | 10kOhm resistor,0402| RC0603FR-0710KL | $0.0012
 
-for a total BOM for the oscillator of $0.3155.  The price increased 8 cents from when I bought the parts in early July.  
+that gives a component cost for the oscillator of $0.3155.  The price increased 8 cents from when I bought the parts in early July.  
 Who says there is no inflation?
 ## Area
 The actual oscillator area is 8mm x 8.3 mm, using a 4 layer stackup with signals and components placed on top and bottom.  Smaller packages would make the area much smaller but carry a cost adder.  A rant on 4-layer boards.  The JLCPCB boards were $2 for 5 boards?  Why would anyone build 2 layer boards at that price?
@@ -44,5 +46,6 @@ Board is a low current consumption 32kHz crystal oscillator evaluation board.  s
 J3 selects whether to use a 5V barrel jack (J3 == 2-3) or micro USB (J3 == 2-1).  Adjust RV1 to provide 1.8V on VDDIO (J5 pin 1) and adjust RV2 to provide 0.9V on J8.1.  32kHz clock output is available on J6.1 or J7 SMA connector, if installed.  
 # Validation 
 Validation files are in the ./validation directory.  Performance is quite good, although startup time is over half a second.
+The sub $0.05 crystal performed well actually.  Jitter was very low.  The MDA photos show a deterministic variation of the frequency.  I have not looked at the cause of this.
 # Conclusion
 You can build a low-power 32kHz oscillator out of discrete components for much less than the cost of a crystal oscillator.  Performance is good, as long as the startup time is not critical.
