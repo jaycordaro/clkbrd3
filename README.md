@@ -3,7 +3,7 @@ In 2021, even 32kHz oscillators are hard to come by!
 # Motivation
 I built this board due to parts shortage and cost issues.  My friends at SiTime are quoting **86 week leadtime** for SiT1532 32.768kHz MEMS oscillators as of the end of July 2021 .  
 Diodes KX321 32.768kHz crystal oscillators are available from DigiKey, albeit at $1.83 per unit in 1k quantities.  
-The design objective was a very low-power, very low-cost crystal oscillator with a minimum of board area so it could be used in "always on" consumer electronics.  The circuit is from The Art of Electronics 3rd Edition by Horowitz & Hill, Section 7.1 figure 7-40.  U2 is in the Pierce configuration and has 10k resistors on power and ground to reduce cross conduction current.  See H&H for more deails.  
+The design objective for clkbrd3 was a very low-power, very low-cost crystal oscillator with a minimum of board area so it could be used in "always on" consumer electronics.  The circuit is from The Art of Electronics 3rd Edition by Horowitz & Hill, Section 7.1 figure 7-40.  U2 is in the Pierce configuration and has 10k resistors on power and ground to reduce cross conduction current.  See H&H for more deails.  
 # Results
 Fabricated at [JLCPCB](URL "https://jlcpcb.com") July, 2021.  I originally tried LVC logic components because they were cheaper but they don't work below 1.65V and the current consumption was way too high.  
 ## Power 
