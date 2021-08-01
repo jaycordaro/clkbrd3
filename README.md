@@ -36,6 +36,7 @@ The actual oscillator area is 8mm x 8.3 mm, using a two-sided layout.  Smaller p
 # Instructions
 ## To Edit
 To edit the schematic or layout, or use in your own projects, clone the repo.  
+note that KiCAD 5 gets confused, I think because of the 10k resistors on power nets.  If you look at the layout there appears to be a problem but I just ignored it and fabbe the board and it worked fine.
 ## To Build
 To just build it as-is, use the zip file in ./gerbers and upload it to jlcpcb.
 # Operation

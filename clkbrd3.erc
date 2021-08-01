@@ -1,0 +1,7 @@
+ERC report (4/18/2021 6:01:46 PM, Encoding UTF8 )
+
+***** Sheet /
+ErrType(8): Global label not connected to any other global label
+    @(198.12 mm, 77.47 mm): Global label VDD is not connected to any other global label.
+
+ ** ERC messages: 1  Errors 0  Warnings 1
