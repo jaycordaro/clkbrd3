@@ -42,3 +42,5 @@ To just build it as-is, use the zip file in ./gerbers and upload it to jlcpcb.
 # Operation
 Board is a low current consumption 32kHz crystal oscillator evaluation board.  see the schematic in the ./schematic directory.  For convenience, can be powered by a 5V USB Micro connector or a 5V barrel jack.  U1 and U3 are LDOs, not low-power, low-Iq or cheap, but convenient.  RV1 and RV2 are potentiometers to set the voltage for VXTAL and VDDIO.  
 J3 selects whether to use a 5V barrel jack (J3 == 2-3) or micro USB (J3 == 2-1).  Adjust RV1 to provide 1.8V on VDDIO (J5 pin 1) and adjust RV2 to provide 0.9V on J8.1.  32kHz clock output is available on J6.1 or J7 SMA connector, if installed.  
+# Conclusion
+You can build a low-power 32kHz oscillator out of discrete components for much less than the cost of a crystal oscillator.  Performance is good, as long as the startup time is not critical.
