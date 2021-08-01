@@ -5,9 +5,9 @@ I built this board due to parts shortage and cost issues.  My friends at SiTime 
 Diodes KX321 32.768kHz crystal oscillators are currently available from DigiKey, albeit at $1.83 per unit in 1k quantities.  
 The design objective for clkbrd3 was a very low-power, very low-cost crystal oscillator with a minimum of board area so it could be used in "always on" consumer electronics.  The circuit is from The Art of Electronics 3rd Edition by Horowitz & Hill, Section 7.1 figure 7-40.  U2 is in the Pierce configuration and has 10k resistors on power and ground to reduce cross conduction current.  U4 schmitt trigger inverter cleans up the signal and U5 amplifies it to 1.8V (or 2.5V or 3.3V) LVCMOS levels.  See H&H for more deails.  
 # Results
-Fabricated at [JLCPCB](URL "https://jlcpcb.com") July, 2021.  I originally tried LVC logic components because they were cheaper but they don't work below 1.65V and the current consumption was way too high.  
+Fabricated at [JLCPCB](URL "https://jlcpcb.com") July, 2021.  I originally tried LVC logic components, because they are cheaper, but they don't work below 1.65V and the current consumption was way too high.  
 ## Power 
-I measured current consumption with a Keysight B2901A SMU. With AUP devices installed, I did measure higher current than what H&H quoted: 867nA for 0.9V 1st stage, and 4.54uA for 1.8V w output driver for a total power consumption of 8.95uW.  I have not investigated the reason for the discrepancy.  Jitter performance is quite good, peak-to-peak jitter of around 3ns.  
+I measured current consumption with a Keysight B2901A SMU. With AUP devices installed, I did measure higher current than what H&H quoted: 867nA for 0.9V 1st stage, and 4.54uA for 1.8V output driver for a total power consumption of 8.95uW.  I have not investigated the reason for the discrepancy.  Jitter performance is quite good, peak-to-peak jitter of around 3ns.  See the ./validation directory.
 ## Cost
 Nexperia raised prices on the AUP devices after I bought them.
 
@@ -42,10 +42,11 @@ note that KiCAD 5 gets confused, I think because of the 10k resistors on power n
 ## To Build
 To just build it as-is, use the zip file in ./gerbers and upload it to jlcpcb.
 # Operation
-Board is a low current consumption 32kHz crystal oscillator evaluation board.  see the schematic in the ./schematic directory.  For convenience, can be powered by a 5V USB Micro connector or a 5V barrel jack.  U1 and U3 are LDOs, not low-power, low-Iq or cheap, but convenient.  RV1 and RV2 are potentiometers to set the voltage for VXTAL and VDDIO.  
+Board is a low current consumption 32kHz crystal oscillator.  see the schematic in the ./schematic directory.  For convenience, the board can be powered by a 5V USB Micro connector or a 5V barrel jack.  U1 and U3 are LDOs, not low-power, low-Iq or cheap, but convenient.  RV1 and RV2 are potentiometers to set the voltage for VXTAL and VDDIO.  
 J3 selects whether to use a 5V barrel jack (J3 == 2-3) or micro USB (J3 == 2-1).  Adjust RV1 to provide 1.8V on VDDIO (J5 pin 1) and adjust RV2 to provide 0.9V on J8.1.  32kHz clock output is available on J6.1 or J7 SMA connector, if installed.  
+If the potentiometers are removed, the board can be powered from lab supplies to measure current.  
 # Validation 
 Validation files are in the ./validation directory.  Performance is quite good, although startup time is over half a second.
-The sub $0.05 crystal performed well actually.  Jitter was very low.  The MDA photos show a deterministic variation of the frequency.  I have not looked at the cause of this.
+The sub $0.05 crystal performed well actually.  Jitter was very low.  The MDA photos show a deterministic variation of the frequency.  I should look into what's going on here, and if this can be improved without increasing power consumption.
 # Conclusion
-You can build a low-power 32kHz oscillator out of discrete components for much less than the cost of a crystal oscillator.  Performance is good, as long as the startup time is not critical.
+You can build a low-power 32kHz oscillator out of discrete components for much less than the current cost of a crystal oscillator.  Performance is good, as long as the startup time is not critical.
