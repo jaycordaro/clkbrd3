@@ -32,7 +32,7 @@ R2 | 10kOhm resistor,0402| RC0603FR-0710KL | $0.0012
 for a total BOM for the oscillator of $0.3155.  The price increased 8 cents from when I bought the parts in early July.  
 Who says there is no inflation?
 ## Area
-The actual oscillator area is 8mm x 8.3 mm, using a two-sided layout.  Smaller packages carry a cost adder.
+The actual oscillator area is 8mm x 8.3 mm, using a 4 layer stackup with signals and components placed on top and bottom.  Smaller packages would make the area much smaller but carry a cost adder.  A rant on 4-layer boards.  The JLCPCB boards were $2 for 5 boards?  Why would anyone build 2 layer boards at that price?
 # Instructions
 ## To Edit
 To edit the schematic or layout, or use in your own projects, clone the repo.  
